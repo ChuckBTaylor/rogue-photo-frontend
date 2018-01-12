@@ -2,10 +2,9 @@ import React from 'react';
 
 const NavBar = props => {
   return (
-
-      <p>
+      <header>
         This is across the top?
-      </p>
+      </header>
   )
 }
 
