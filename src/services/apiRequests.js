@@ -25,6 +25,11 @@ export default function(){
       fetch: () => {
         return fetch(`${API_ROOT}/galleries`)
           .then(res => res.json())
+      },
+
+      show: id => {
+        return fetch(`${API_ROOT}/galleries/${id}`)
+          .then(res => res.json())
       }
     }
   }
