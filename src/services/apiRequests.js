@@ -21,7 +21,7 @@ export default function(){
   const railsPatch = {...railsHeaders, method: 'PATCH'}
 
   return {
-    gallery: {
+    galleries: {
       fetch: () => {
         return fetch(`${API_ROOT}/galleries`)
           .then(res => res.json())
