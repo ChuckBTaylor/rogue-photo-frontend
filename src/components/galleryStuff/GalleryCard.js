@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 const GalleryCard = props => {
   console.log(props);
   const route = `/galleries/${props.gallery.id}`
+  const photographerRoute = `/photographers/${props.gallery.user_id}`
   return(
     <div>
       <NavLink to={route}>
@@ -22,7 +23,7 @@ const GalleryCard = props => {
       Date: {props.gallery.date}
       </NavLink>
       <br />
-      <NavLink to={route}>
+      <NavLink to={photographerRoute}>
       Photographer: {props.gallery.user_id}
       </NavLink>
       <br />
