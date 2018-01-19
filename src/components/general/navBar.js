@@ -5,6 +5,7 @@ const NavBar = props => {
   return (
       <header>
         <ul>
+          <li><NavLink to='/photographers'>Photographers</NavLink></li>
           <li><NavLink to='/galleries'>Galleries</NavLink></li>
           <li><NavLink to='/about'>About</NavLink></li>
           <li><NavLink to='/contact'>Contact</NavLink></li>
