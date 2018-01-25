@@ -11,9 +11,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import galleryReducer from './reducers/galleryReducer';
 import userReducer from './reducers/userReducer';
+import photographerReducer from './reducers/photographerReducer'
 
 
-const rootReducer = combineReducers({users: userReducer, galleries: galleryReducer})
+const rootReducer = combineReducers({users: userReducer, galleries: galleryReducer, photographers: photographerReducer})
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 

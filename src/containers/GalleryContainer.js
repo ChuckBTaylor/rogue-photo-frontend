@@ -8,7 +8,6 @@ import GalleryShow from '../components/galleryStuff/GalleryShow';
 
 class GalleryContainer extends Component {
   render(){
-    console.log(this.props);
     return (
       <div>
         Gallery
