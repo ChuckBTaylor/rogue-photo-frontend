@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const GalleryCard = props => {
-  console.log(props);
   const route = `/galleries/${props.gallery.id}`
   const photographerRoute = `/photographers/${props.gallery.user_id}`
   return(

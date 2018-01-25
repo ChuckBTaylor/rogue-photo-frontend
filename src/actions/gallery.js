@@ -23,3 +23,24 @@ export function fetchGallery(id){
       })
   }
 }
+
+export function chooseGallery(id){
+  return {
+    type: "CHOOSE_GALLERY",
+    payload: id
+  }
+}
+
+export function postGallery(galleryName, tags){
+  return function(dispatch){
+    dispatch({type: "POSTING_GALLERY"})
+    return api().galleries.postNew(galleryName, tags)
+      .then(json => {
+        console.log(json);
+        dispatch({
+          type: "POSTED_GALLERY",
+          payload: json
+        })
+      })
+  }
+}

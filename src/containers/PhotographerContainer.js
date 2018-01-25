@@ -4,15 +4,21 @@ import { bindActionCreators } from 'redux';
 import { Route } from 'react-router';
 import { fetchPhotographers } from '../actions/photographers';
 import PhotographerList from '../components/photographerStuff/PhotographerList';
+import UploadWidget from '../components/cloudinaryStuff/UploadWidget';
 
 class PhotographerContainer extends Component {
   render(){
-    console.log(this.props, "Photgrapher Container Props");
     return(
       <div>
         Photographers
+        <Route exact path='/photographers' render={() => <PhotographerList photographers={this.props.photographers} /> } />
+        <UploadWidget />
       </div>
     )
+  }
+
+  componentDidMount = () => {
+    this.props.fetchPhotographers()
   }
 }
 

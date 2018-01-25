@@ -2,6 +2,7 @@ export default function galleryReducer(state={
 list: {},
 activeGallery: 0,
 isFetching: false,
+isPosting: false
 }, action){
   switch(action.type){
     case "FETCHING_GALLERIES":
@@ -15,6 +16,15 @@ isFetching: false,
 
     case "FETCHED_GALLERY":
       return {...state, isFetching: false};
+
+    case "POSTING_GALLERY":
+      return {...state, isPosting: true};
+
+    case "POSTED_GALLERY":
+      return {...state, isPosting: false};
+
+    case "CHOOSE_GALLERY":
+      return {...state, activeGallery: action.payload}
 
     default:
       return state;
