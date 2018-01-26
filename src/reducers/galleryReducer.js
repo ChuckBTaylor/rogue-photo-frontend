@@ -24,7 +24,10 @@ isPosting: false
       return {...state, isPosting: false};
 
     case "CHOOSE_GALLERY":
-      return {...state, activeGallery: action.payload}
+      return {...state, activeGallery: action.payload};
+
+    case "DESELECT_GALLERY":
+      return {...state, activeGallery: 0}
 
     default:
       return state;

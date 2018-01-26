@@ -7,7 +7,6 @@ export function fetchGalleries(){
     return api().galleries.fetch()
       .then(json => {
         const formatted = formatJSON(json)
-        console.log(formatted);
         dispatch({type: "FETCHED_GALLERIES", payload: formatted})
       })
   }
@@ -28,6 +27,12 @@ export function chooseGallery(id){
   return {
     type: "CHOOSE_GALLERY",
     payload: id
+  };
+}
+
+export function deselectGallery(){
+  return {
+    type: "DESELECT_GALLERY"
   }
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route } from 'react-router';
-import { fetchGalleries, chooseGallery } from '../actions/gallery';
+import { fetchGalleries, chooseGallery, deselectGallery } from '../actions/gallery';
 import GalleryList from '../components/galleryStuff/GalleryList';
 import GalleryShow from '../components/galleryStuff/GalleryShow';
 
@@ -10,9 +10,11 @@ class GalleryContainer extends Component {
 
   handleGalleryClick = id => {
     this.props.chooseGallery(id)
+    this.props.history.push(this.props.location.pathname + `/${id}`)
   }
 
   handlePhotographerClick = id => {
+
   }
 
   render(){
@@ -21,17 +23,20 @@ class GalleryContainer extends Component {
         Gallery
         <Route exact path='/galleries' render={props =>
           <GalleryList
-          galleries={this.props.galleries}
-          handleGalleryClick={this.handleGalleryClick}
-          handlePhotographerClick={this.handlePhotographerClick}
-        />
-        } />
+            galleries={this.props.galleries}
+            handleGalleryClick={this.handleGalleryClick}
+            handlePhotographerClick={this.handlePhotographerClick}
+          />
+        }/>
+
         <Route exact path='/galleries/:id' render={props =>
           <GalleryShow
-          {...props}
-          gallery={this.props.galleries[this.props.activeGallery]}
-          galleries={this.props.galleries}
-          chooseGallery={this.props.chooseGallery} /> } />
+            {...props}
+            gallery={this.props.galleries[this.props.activeGallery]}
+            chooseGallery={this.props.chooseGallery}
+            deselectGallery={this.props.deselectGallery}
+          />
+        }/>
       </div>
     )
   }
@@ -49,7 +54,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({fetchGalleries, chooseGallery}, dispatch)
+  return bindActionCreators({fetchGalleries, chooseGallery, deselectGallery}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GalleryContainer);

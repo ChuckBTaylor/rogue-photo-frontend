@@ -1,10 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 const GalleryCard = props => {
-  const route = `/galleries/${props.gallery.id}`
-  const photographerRoute = `/photographers/${props.gallery.user_id}`
-  console.log(props, "gallery card props");
 
   const onGalleryClick = () => {
     props.handleGalleryClick(props.gallery.id)
@@ -15,7 +11,7 @@ const GalleryCard = props => {
   }
 
   return(
-    <div>
+    <div className='gallery-card-holder'>
       <div className="gallery-card header-photo" onClick={onGalleryClick}>
         Header Photo
       </div>
@@ -28,7 +24,7 @@ const GalleryCard = props => {
       <div className='gallery-card gallery-date' onClick={onGalleryClick}>
         Date: {props.gallery.date}
       </div>
-      <div className='gallery-card photographer-name'>
+      <div className='gallery-card photographer-name' onClick={onPhotographerClick}>
         Photographer: {props.gallery.user_id}
       </div>
       <br />
