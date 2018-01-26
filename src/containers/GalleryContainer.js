@@ -7,11 +7,24 @@ import GalleryList from '../components/galleryStuff/GalleryList';
 import GalleryShow from '../components/galleryStuff/GalleryShow';
 
 class GalleryContainer extends Component {
+
+  handleGalleryClick = id => {
+    this.props.chooseGallery(id)
+  }
+
+  handlePhotographerClick = id => {
+  }
+
   render(){
     return (
       <div>
         Gallery
-        <Route exact path='/galleries' render={() => <GalleryList galleries={this.props.galleries}/>
+        <Route exact path='/galleries' render={props =>
+          <GalleryList
+          galleries={this.props.galleries}
+          handleGalleryClick={this.handleGalleryClick}
+          handlePhotographerClick={this.handlePhotographerClick}
+        />
         } />
         <Route exact path='/galleries/:id' render={props =>
           <GalleryShow
