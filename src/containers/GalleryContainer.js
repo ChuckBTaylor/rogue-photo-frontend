@@ -17,6 +17,7 @@ class GalleryContainer extends Component {
           <GalleryShow
           {...props}
           gallery={this.props.galleries[this.props.activeGallery]}
+          galleries={this.props.galleries}
           chooseGallery={this.props.chooseGallery} /> } />
       </div>
     )
