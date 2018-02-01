@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
-import cloudinary from 'cloudinary-core';
-const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'roguephoto'});
+import PhotoHandler from './PhotoHandler';
 
 class GalleryShow extends Component {
 
@@ -12,22 +10,16 @@ class GalleryShow extends Component {
 
   componentWillReceiveProps = nextProps => {
     if(!this.props.gallery && nextProps.gallery){
-      this.fetchPhotos(nextProps.gallery.name)
-    }
-  }
-
-  fetchPhotos = galleryTag => {
-    fetch(`https://res.cloudinary.com/roguephoto/image/list/${galleryTag}.json`)
-      // .then(res => res.json())
-      .then(json => {
-        console.log(json);
-        // this.setState({gallery: json.data.resources});
-      })
+      this.props.fetchGallery(nextProps.gallery.name)
+        .then(json => this.setState({photos: json.resources}))
+      }
   }
 
   render(){
+    const photos = this.state.photos.map((photoInfo, idx) => <PhotoHandler key={`photo-${idx}`} photo={photoInfo} />)
     return(
-      <div>
+      <div className='gallery-photo-holder'>
+        {photos}
       </div>
     )
   }

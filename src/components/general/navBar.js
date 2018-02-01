@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = props => {
   return (
-      <header>
+      <div className='header-top'>
         <ul>
           <li><NavLink to='/photographers'>Photographers</NavLink></li>
           <li><NavLink to='/galleries'>Galleries</NavLink></li>
@@ -12,7 +12,7 @@ const NavBar = props => {
           <li><a href='https://www.instagram.com/roguephotonyc/' target="_blank" rel="noopener noreferrer">Instagram</a></li>
           <li><NavLink to='/donate'>Donate</NavLink></li>
         </ul>
-      </header>
+      </div>
   )
 }
 

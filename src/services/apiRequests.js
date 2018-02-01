@@ -27,14 +27,15 @@ export default function(){
           .then(res => res.json())
       },
 
-      show: id => {
-        return fetch(`${API_ROOT}/galleries/${id}`)
+      show: name => {
+        // const gallery = {gallery: {name}}
+        return fetch(`${API_ROOT}/cloudinary_galleries?gallery=${name}`)
           .then(res => res.json())
       },
 
       postNew: (name, tags) => {
         const user_id = 1
-        const body = JSON.stringify({gallery: {name, tags, user_id}})
+        const body = JSON.stringify({name, tags, user_id})
         return fetch(`${API_ROOT}/galleries`, {
           ...railsPost,
           body

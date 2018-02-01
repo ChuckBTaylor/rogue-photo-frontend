@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route } from 'react-router';
-import { fetchGalleries, chooseGallery, deselectGallery } from '../actions/gallery';
+import { fetchGalleries, chooseGallery, deselectGallery, fetchGallery } from '../actions/gallery';
 import GalleryList from '../components/galleryStuff/GalleryList';
 import GalleryShow from '../components/galleryStuff/GalleryShow';
 
@@ -35,6 +35,7 @@ class GalleryContainer extends Component {
             gallery={this.props.galleries[this.props.activeGallery]}
             chooseGallery={this.props.chooseGallery}
             deselectGallery={this.props.deselectGallery}
+            fetchGallery={this.props.fetchGallery}
           />
         }/>
       </div>
@@ -54,7 +55,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({fetchGalleries, chooseGallery, deselectGallery}, dispatch)
+  return bindActionCreators({fetchGalleries, chooseGallery, deselectGallery, fetchGallery}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GalleryContainer);
