@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import NavBar from './components/general/NavBar';
+import HeaderBar from './components/general/HeaderBar';
 import { Route } from 'react-router';
 import { Switch } from 'react-router-dom';
 import GalleryContainer from './containers/GalleryContainer';
@@ -9,11 +9,13 @@ import ContactPage from './components/general/ContactPage';
 import DonatePage from './components/general/DonatePage';
 import PhotographerContainer from './containers/PhotographerContainer';
 
+
 class App extends Component {
+
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <HeaderBar />
         <Switch>
           <Route path='/galleries' component={GalleryContainer} />
           <Route path='/about' component={AboutPage} />

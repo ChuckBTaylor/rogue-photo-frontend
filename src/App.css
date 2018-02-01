@@ -37,3 +37,30 @@
 .gallery-photo-item {
 
 }
+
+.header-top {
+  background-color: #850000;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.header-inner-nav {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 13px;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.header-inner-nav a {
+  float: left;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.header-nav-tag:hover {
+  color: #4286f4;
+  opacity: 1;
+}
