@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 import cloudinary from 'cloudinary-core';
-const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'roguephoto'});
+const cl = new cloudinary.Cloudinary({cloud_name: 'roguephoto'});
 
 class GalleryShow extends Component {
-
 
   state = {
     photos: []
@@ -17,8 +16,8 @@ class GalleryShow extends Component {
   }
 
   fetchPhotos = galleryTag => {
-    fetch(`https://res.cloudinary.com/roguephoto/image/list/${galleryTag}.json`)
-      // .then(res => res.json())
+    fetch(`http://localhost:3000/api/v1/cloudinary_galleries?name=${galleryTag}`)
+      .then(res => res.json())
       .then(json => {
         console.log(json);
         // this.setState({gallery: json.data.resources});
@@ -28,6 +27,7 @@ class GalleryShow extends Component {
   render(){
     return(
       <div>
+        <img src={cl.url('sample')}/>
       </div>
     )
   }
@@ -46,4 +46,4 @@ class GalleryShow extends Component {
   }
 }
 
-export default GalleryShow
+export default GalleryShow;
