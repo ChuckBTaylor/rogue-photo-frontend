@@ -29,7 +29,7 @@ export default function(){
 
       show: name => {
         // const gallery = {gallery: {name}}
-        return fetch(`${API_ROOT}/cloudinary_galleries?gallery=${name}`)
+        return fetch(`${API_ROOT}/cloudinary_galleries?name=${name}`)
           .then(res => res.json())
       },
 

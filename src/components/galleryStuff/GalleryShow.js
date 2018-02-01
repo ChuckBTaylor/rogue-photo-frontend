@@ -10,9 +10,14 @@ class GalleryShow extends Component {
 
   componentWillReceiveProps = nextProps => {
     if(!this.props.gallery && nextProps.gallery){
-      this.props.fetchGallery(nextProps.gallery.name)
-        .then(json => this.setState({photos: json.resources}))
+      this.fetchPhotos(nextProps.gallery.name)
+
       }
+  }
+
+  fetchPhotos = galleryName => {
+    this.props.fetchGallery(galleryName)
+      .then(json => this.setState({photos: json.resources}))
   }
 
   render(){

@@ -18,6 +18,7 @@ class GalleryContainer extends Component {
   }
 
   render(){
+    console.log(this.props.galleries);
     return (
       <div>
         Gallery
