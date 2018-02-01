@@ -5,8 +5,6 @@ import cloudinary from 'cloudinary-core';
 const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'roguephoto'});
 
 const PhotoHandler = props => {
-
-  console.log(props);
   return (
   <div className='gallery-photo-item'>
     <Image
