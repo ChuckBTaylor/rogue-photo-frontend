@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
+import React from 'react';
+import { Transformation, Image } from 'cloudinary-react';
 import cloudinary from 'cloudinary-core';
-
-const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'roguephoto'});
 
 const PhotoHandler = props => {
   return (

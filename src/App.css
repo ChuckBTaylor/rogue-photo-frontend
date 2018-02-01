@@ -64,3 +64,31 @@
   color: #4286f4;
   opacity: 1;
 }
+
+div.parallax {
+  height: 150vh;
+  max-height: 100%;
+  overflow-x: hidden;
+  perspective: 1px;
+  perspective-origin: center top;
+  transform-style: preserve-3d;
+  padding: 0;
+}
+
+.header-photo {
+  height: 80vh;
+  background: url("https://i.imgur.com/i2g1Q3S.jpg");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  vertical-align: top;
+  transform-origin: center top;
+  transform: translateZ(-1px) scale(3);
+}
+
+section.landing-content {
+  min-height: 200vh;
+  background: white;
+  transform: translateZ(0);
+  padding: 10px 0;
+}

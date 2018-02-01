@@ -8,6 +8,7 @@ import AboutPage from './components/general/AboutPage';
 import ContactPage from './components/general/ContactPage';
 import DonatePage from './components/general/DonatePage';
 import PhotographerContainer from './containers/PhotographerContainer';
+import LandingPage from './components/general/LandingPage'; 
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
       <div className="App">
         <HeaderBar />
         <Switch>
+          <Route exact path='/' component={LandingPage} />
           <Route path='/galleries' component={GalleryContainer} />
           <Route path='/about' component={AboutPage} />
           <Route path='/contact' component={ContactPage} />
