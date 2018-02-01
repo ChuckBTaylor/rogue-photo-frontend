@@ -12,13 +12,14 @@ export function fetchGalleries(){
   }
 }
 
-export function fetchGallery(id){
+export function fetchGallery(name){
   return function(dispatch){
-    dispatch({type: "FETCHING_GALLERY", payload: id})
-    return api().galleries.show(id)
+    dispatch({type: "FETCHING_GALLERY", payload: name})
+    return api().galleries.show(name)
       .then(json => {
         console.log(json)
         dispatch({type: "FETCHED_GALLERY", payload: json})
+        return json
       })
   }
 }
