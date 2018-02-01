@@ -42,10 +42,10 @@ class GalleryContainer extends Component {
       </div>
     )
   }
-
-  componentDidMount = () => {
-    this.props.fetchGalleries()
-  }
+  // 
+  // componentDidMount = () => {
+  //   this.props.fetchGalleries()
+  // }
 }
 
 const mapStateToProps = state => {
