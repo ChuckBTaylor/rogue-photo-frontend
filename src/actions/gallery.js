@@ -17,7 +17,6 @@ export function fetchGallery(name){
     dispatch({type: "FETCHING_GALLERY", payload: name})
     return api().galleries.show(name)
       .then(json => {
-        console.log(json)
         dispatch({type: "FETCHED_GALLERY", payload: json})
         return json
       })

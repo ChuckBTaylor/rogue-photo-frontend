@@ -10,7 +10,7 @@ import AboutPage from './components/general/AboutPage';
 import ContactPage from './components/general/ContactPage';
 import DonatePage from './components/general/DonatePage';
 import PhotographerContainer from './containers/PhotographerContainer';
-import { fetchGalleries } from './actions/gallery'
+import { fetchGalleries, chooseGallery } from './actions/gallery'
 import { get3MostRecent } from './helpers/functions';
 
 
@@ -20,7 +20,7 @@ class App extends Component {
     const recentGalleries = get3MostRecent(Object.values(this.props.galleries))
     return (
       <div className="App">
-        <HeaderBar recentGalleries={recentGalleries} />
+        <Route path='/' render={props => <HeaderBar {...props} recentGalleries={recentGalleries} chooseGallery={this.props.chooseGallery} />} />
         <Switch>
           <Route path='/galleries' component={GalleryContainer} />
           <Route path='/about' component={AboutPage} />
@@ -45,7 +45,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({fetchGalleries}, dispatch)
+  return bindActionCreators({fetchGalleries, chooseGallery}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

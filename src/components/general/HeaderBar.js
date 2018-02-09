@@ -3,10 +3,11 @@ import NavBar from './NavBar'
 import GalleryBar from './GalleryBar'
 
 const HeaderBar = props => {
+  console.log(props, "from HeaderBar");
   return (
   <div className='header-top'>
     <NavBar />
-    <GalleryBar recentGalleries={props.recentGalleries} />
+    <GalleryBar chooseGallery={props.chooseGallery} recentGalleries={props.recentGalleries} history={props.history} />
   </div>
   )
 }
