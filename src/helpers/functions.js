@@ -1,29 +1,8 @@
 export function get3MostRecent(galleryArray) {
-  let arr = []
-  galleryArray.forEach(gallery => {
-    console.log(arr, 'array');
-    console.log(gallery, 'gallery');
-    if(arr.length === 0){
-      arr.push(gallery)
-    }else if(arr.length === 1){
-      if(isNewGalleryMoreRecent(gallery, arr[0])){
-        arr.unshift(gallery)
-      }else{
-        arr.push(gallery)
-      }
-    }else if(arr.length === 2){
-      if(isNewGalleryMoreRecent(gallery, arr[0])){
-        arr.unshift(gallery)
-      }else if(isNewGalleryMoreRecent(gallery, arr[1])){
-        arr.splice(1, 0, gallery)
-      }else{
-        arr.push(gallery)
-      }
-    }else{
-      checkRecentGalleries(gallery, arr)
-    }
-  })
-  return arr;
+  return galleryArray.sort((galleryA, galleryB) => {
+    console.log(new Date(galleryA.created_at) - new Date(galleryB.created_at));
+    return new Date(galleryB.created_at) - new Date(galleryA.created_at)
+  }).slice(0, 3)
 }
 
 function checkRecentGalleries(newGallery, array){
