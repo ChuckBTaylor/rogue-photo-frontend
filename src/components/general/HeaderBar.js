@@ -6,7 +6,7 @@ const HeaderBar = props => {
   return (
   <div className='header-top'>
     <NavBar />
-    <GalleryBar />
+    <GalleryBar recentGalleries={props.recentGalleries} />
   </div>
   )
 }

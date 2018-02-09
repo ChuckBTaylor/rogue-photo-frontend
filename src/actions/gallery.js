@@ -7,7 +7,6 @@ export function fetchGalleries(){
     return api().galleries.fetch()
       .then(json => {
         const formatted = formatJSON(json)
-        console.log(formatted, "Formatted Gallery objects");
         dispatch({type: "FETCHED_GALLERIES", payload: formatted})
       })
   }

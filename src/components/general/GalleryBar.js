@@ -1,11 +1,11 @@
 import React from 'react';
+import GalleryButton from './GalleryButton';
 
 const GalleryBar = props => {
+  const galleryButtons = props.recentGalleries.map(gallery => <GalleryButton key={`gb-${gallery.id}`} gallery={gallery}/>)
   return (
   <div className='header-inner-nav btn-group'>
-    <button>Gallery 1</button>
-    <button>Gallery 2</button>
-    <button>Gallery 3</button>
+    {galleryButtons}
   </div>
   )
 }

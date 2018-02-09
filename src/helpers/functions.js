@@ -1,6 +1,5 @@
 export function get3MostRecent(galleryArray) {
   return galleryArray.sort((galleryA, galleryB) => {
-    console.log(new Date(galleryA.created_at) - new Date(galleryB.created_at));
     return new Date(galleryB.created_at) - new Date(galleryA.created_at)
   }).slice(0, 3)
 }

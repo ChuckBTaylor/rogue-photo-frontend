@@ -17,11 +17,10 @@ import { get3MostRecent } from './helpers/functions';
 class App extends Component {
 
   render() {
-    const recent = get3MostRecent(Object.values(this.props.galleries))
-    console.log(recent);
+    const recentGalleries = get3MostRecent(Object.values(this.props.galleries))
     return (
       <div className="App">
-        <HeaderBar />
+        <HeaderBar recentGalleries={recentGalleries} />
         <Switch>
           <Route path='/galleries' component={GalleryContainer} />
           <Route path='/about' component={AboutPage} />
