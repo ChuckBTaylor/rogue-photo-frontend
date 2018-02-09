@@ -12,7 +12,7 @@ isPosting: false
       return {...state, isFetching: false, list: action.payload};
 
     case "FETCHING_GALLERY":
-      return {...state, activeGallery: action.payload, isFetching: true};
+      return {...state, isFetching: true};
 
     case "FETCHED_GALLERY":
       return {...state, isFetching: false};

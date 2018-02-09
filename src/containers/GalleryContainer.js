@@ -18,10 +18,10 @@ class GalleryContainer extends Component {
   }
 
   render(){
-    console.log(this.props.galleries);
+    console.log(this.props.activeGallery, "Gallery Container Props");
     return (
       <div>
-        Gallery
+        Gallery Container
         <Route exact path='/galleries' render={props =>
           <GalleryList
             galleries={this.props.galleries}
@@ -41,10 +41,6 @@ class GalleryContainer extends Component {
         }/>
       </div>
     )
-  }
-
-  componentDidMount = () => {
-    this.props.fetchGalleries()
   }
 }
 

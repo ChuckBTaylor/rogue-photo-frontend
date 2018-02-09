@@ -9,9 +9,12 @@ class GalleryShow extends Component {
   }
 
   componentWillReceiveProps = nextProps => {
-    if(!this.props.gallery && nextProps.gallery){
+    if(nextProps.gallery){
+      this.props.chooseGallery(nextProps.gallery.id)
+    }
+    if(nextProps.gallery && (!this.props.gallery || (nextProps.gallery.id !== this.props.gallery.id))){
+      console.log("Fetching new photos");
       this.fetchPhotos(nextProps.gallery.name)
-
       }
   }
 
@@ -22,8 +25,11 @@ class GalleryShow extends Component {
 
   render(){
     const photos = this.state.photos.map((photoInfo, idx) => <PhotoHandler key={`photo-${idx}`} photo={photoInfo} />)
+    console.log(this.props, "Gallery Show Props");
+    const gName = this.props.gallery ? this.props.gallery.name : "None"
     return(
       <div className='gallery-photo-holder'>
+        {gName}
         {photos}
       </div>
     )
@@ -33,14 +39,15 @@ class GalleryShow extends Component {
     if(!this.props.gallery){
       const path = window.location.pathname.split('/')
       this.props.chooseGallery(path[path.length - 1])
-    } else {
-      this.fetchPhotos(this.props.gallery.name)
     }
   }
 
   componentWillUnmount = () => {
     this.props.deselectGallery()
   }
+}
+
+GalleryShow.defaultProps = {
 }
 
 export default GalleryShow

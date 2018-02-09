@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -20,11 +15,6 @@
 
 .App-intro {
   font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .gallery-photo-holder {
@@ -42,10 +32,11 @@
   background-color: #850000;
   padding-top: 1em;
   padding-bottom: 1em;
+  justify-content: space-between;
 }
 
 .header-inner-nav {
-  display: block;
+  display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 13px;
@@ -63,4 +54,20 @@
 .header-nav-tag:hover {
   color: #4286f4;
   opacity: 1;
+}
+
+.btn-group button {
+  background-color: #850000;
+  border: 1px solid white;
+  color: white;
+  padding: 10px 24px;
+  float: left;
+}
+
+.btn-group button:(:last-child) {
+  border-right: none;
+}
+
+.btn-group button:hover {
+  background-color: #4286f4;
 }
